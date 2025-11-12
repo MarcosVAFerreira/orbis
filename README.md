@@ -31,7 +31,7 @@ A proposta é oferecer uma experiência semelhante ao **Wise**, convertendo auto
 | **Linguagem** | Python 3.12 |
 | **Frameworks (futuro)** | Flask (API), React (frontend), Bootstrap |
 | **Banco de dados** | PostgreSQL |
-| **Ferramentas** | VSCode, Docker, Git, Obsidian |
+| **Ferramentas utilizadas** | VSCode, Docker, Git, Obsidian |
 
 ---
 
@@ -67,3 +67,4 @@ pip install -r requirements.txt
 
 # 4️⃣ Executar o sistema
 python src/core/main.py
+
