@@ -1,7 +1,7 @@
 // Mascote Orbinho
 document.addEventListener("DOMContentLoaded", () => {
     const orb = document.createElement("img");
-    orb.src = "assets/mascot/orbinho.png";
+    orb.src = "assets/mascot/orbinho.jpg";   // <-- CAMINHO CORRETO
     orb.className = "orbinho";
     document.body.appendChild(orb);
 
