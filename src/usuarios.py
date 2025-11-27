@@ -1,33 +1,32 @@
+from dataclasses import dataclass
 from typing import Dict, Optional
-from pydantic import BaseModel
 import uuid
 
-
-class Usuario(BaseModel):
-id: str
-username: str
-full_name: Optional[str]
-
-
-
+@dataclass
+class Usuario:
+    id: str
+    nome: str
+    email: str
 
 class UsuarioRepo:
-def __init__(self):
-self._users: Dict[str, Usuario] = {}
+    def __init__(self):
+        # Banco de dados em memória
+        self._usuarios: Dict[str, Usuario] = {}
 
+    def criar(self, nome: str, email: str) -> Usuario:
+        novo_id = str(uuid.uuid4())
+        usuario = Usuario(id=novo_id, nome=nome, email=email)
+        self._usuarios[novo_id] = usuario
+        return usuario
 
-def create(self, username: str, full_name: Optional[str] = None) -> Usuario:
-user = Usuario(id=str(uuid.uuid4()), username=username, full_name=full_name)
-self._users[user.id] = user
-return user
+    def listar(self):
+        return list(self._usuarios.values())
 
+    def obter(self, usuario_id: str) -> Optional[Usuario]:
+        return self._usuarios.get(usuario_id)
 
-def get(self, user_id: str) -> Optional[Usuario]:
-return self._users.get(user_id)
-
-
-def find_by_username(self, username: str) -> Optional[Usuario]:
-for u in self._users.values():
-if u.username == username:
-return u
-return None
+    def remover(self, usuario_id: str) -> bool:
+        if usuario_id in self._usuarios:
+            del self._usuarios[usuario_id]
+            return True
+        return False
