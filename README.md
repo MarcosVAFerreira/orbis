@@ -1,9 +1,9 @@
-#🌐 Orbis — Sistema Bancário em Python
-##🔗 Demonstração Online
+🌐 Orbis — Sistema Bancário em Python
+🔗 Demonstração Online
 Acesse a versão web diretamente no navegador (funciona em PC, celular e tablet, sem downloads):
 👉 https://MarcosVAFerreira.github.io/orbis
 
-#🧭 Visão Geral
+🧭 Visão Geral
 Orbis é um sistema bancário modular desenvolvido em Python, com foco em:
 Controle financeiro simples e transparente
 Segurança e consistência de operações
@@ -81,3 +81,4 @@ Distribuído sob a licença MIT — livre para usar, modificar e contribuir.
 📜 Licença
 
 Distribuído sob a licença MIT — livre para usar, modificar e contribuir.
+
