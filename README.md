@@ -1,6 +1,13 @@
 ﻿# 🌐 Orbis — Sistema Bancário em Python
+<<<<<<< HEAD
 ## Demonstração Online
 Acesse a versão web do Orbis diretamente pelo navegador:
+=======
+## 🌐 Demonstração Online
+
+Acesse a versão web do Orbis diretamente pelo navegador:
+
+>>>>>>> c1732a3eada1d386c1d9bcc3f6d30e42a08657b6
 👉 **https://MarcosVAFerreira.github.io/orbis**
 
 > Funciona em navegador, celular e PC — sem precisar baixar o repositório.
@@ -72,4 +79,5 @@ pip install -r requirements.txt
 
 # 4️⃣ Executar o sistema
 python src/core/main.py
+
 
