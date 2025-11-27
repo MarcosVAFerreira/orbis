@@ -1,83 +1,83 @@
-﻿# 🌐 Orbis — Sistema Bancário em Python
-<<<<<<< HEAD
-## Demonstração Online
-Acesse a versão web do Orbis diretamente pelo navegador:
-=======
-## 🌐 Demonstração Online
+#🌐 Orbis — Sistema Bancário em Python
+##🔗 Demonstração Online
+Acesse a versão web diretamente no navegador (funciona em PC, celular e tablet, sem downloads):
+👉 https://MarcosVAFerreira.github.io/orbis
 
-Acesse a versão web do Orbis diretamente pelo navegador:
+#🧭 Visão Geral
+Orbis é um sistema bancário modular desenvolvido em Python, com foco em:
+Controle financeiro simples e transparente
+Segurança e consistência de operações
+Suporte a múltiplas moedas
+Expansão futura para integração com APIs reais de câmbio
+Execução tanto localmente quanto no navegador via GitHub Pages
+O objetivo é criar uma experiência inspirada no Wise, onde o usuário vê seu saldo consolidado em reais mesmo operando com moedas diferentes.
 
->>>>>>> c1732a3eada1d386c1d9bcc3f6d30e42a08657b6
-👉 **https://MarcosVAFerreira.github.io/orbis**
+⚙️ Funcionalidades
+✔️ Funcionais
+Criar e gerenciar usuários
+Criar contas bancárias
+Depósito com validação
+Saque com limite e verificação de saldo
+Extrato detalhado por conta
+Conversão automática de moedas
 
-> Funciona em navegador, celular e PC — sem precisar baixar o repositório.
+🚧 Em desenvolvimento
+API completa (Flask)
+Integração com React
+Backend real usando PostgreSQL
+Autenticação e autorização
 
-[![Status](https://img.shields.io/badge/status-em_desenvolvimento-yellow)](#)
-[![Python](https://img.shields.io/badge/python-3.12+-blue)](#)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Made with ❤️ by Marcos Ferreira](https://img.shields.io/badge/made%20with-❤️%20by%20Marcos%20Ferreira-blueviolet)](#)
-
----
-
-## 🧭 Visão Geral
-**Orbis** é um sistema bancário inteligente, desenvolvido em **Python**, com foco em controle financeiro, segurança e integração multi-moeda.  
-A proposta é oferecer uma experiência semelhante ao **Wise**, convertendo automaticamente valores de diferentes moedas para o total em reais — sem necessidade de transferências entre contas locais.
-
----
-
-## ⚙️ Funcionalidades
-
-✅ Criação de contas e usuários  
-✅ Depósito, saque e extrato detalhado  
-✅ Controle de saldo e limites de saque  
-✅ Conversão automática de moedas (multi-moeda)  
-🚧 Integração futura com APIs de câmbio  
-🚧 Interface web (Flask + React)
-
----
-
-## 🧩 Stack Técnica
-
-| Categoria | Ferramentas |
-|------------|--------------|
-| **Linguagem** | Python 3.12 |
-| **Frameworks (futuro)** | Flask (API), React (frontend), Bootstrap |
-| **Banco de dados** | PostgreSQL |
-| **Ferramentas utilizadas** | VSCode, Docker, Git, Obsidian |
-
----
-
-## 🧱 Estrutura do Projeto
-```
+🧩 Stack Técnica
+Camada	Tecnologias
+Linguagem	Python 3.12
+Backend	Flask (API REST – WIP)
+Frontend Web	HTML, CSS, JavaScript
+Banco de dados (planejado)	PostgreSQL
+Ferramentas	VSCode, GitHub Pages, Docker, Obsidian
+🗂️ Estrutura do Projeto
 Orbis/
+├── api/               # Endpoints Flask (em desenvolvimento)
+├── client/            # Interface web estática (HTML/CSS/JS) – usada no GitHub Pages
+│   ├── index.html
+│   ├── styles.css
+│   └── app.js
 ├── src/
-│ ├── core/ # Lógica principal do sistema (usuários, contas, transações)
-│ ├── utils/ # Funções auxiliares, logs e validações
-│ ├── api/ # Interface Flask (futuro)
-│ └── init.py
-├── tests/ # Testes unitários e de integração
+│   ├── core/          # Lógica principal (contas, usuários, transações)
+│   ├── utils/         # Funções auxiliares
+│   ├── data/          # Banco de dados em memória
+│   └── __init__.py
+├── tests/             # Testes unitários (pytest)
+├── docs/              # Página publicada pelo GitHub Pages
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-````
 
-
-## 🚀 Como Executar Localmente
-
-```bash
+🚀 Como Executar Localmente
 # 1️⃣ Clonar o repositório
 git clone https://github.com/MarcosVAFerreira/orbis.git
 cd orbis
 
 # 2️⃣ Criar ambiente virtual
 python -m venv venv
-source venv/bin/activate   # (Linux/macOS)
-venv\Scripts\activate      # (Windows)
+# Ativar o ambiente
+source venv/bin/activate       # Linux/macOS
+venv\Scripts\activate          # Windows
 
 # 3️⃣ Instalar dependências
 pip install -r requirements.txt
 
-# 4️⃣ Executar o sistema
+# 4️⃣ Executar a versão Python
 python src/core/main.py
 
+🌐 Como Acessar a Versão Web
+A versão web funciona pelo GitHub Pages e pode ser acessada em:
 
+👉 https://MarcosVAFerreira.github.io/orbis
+A interface web está na pasta /client e é copiada automaticamente para /docs no branch main, garantindo publicação automática.
+
+#📜 Licença
+Distribuído sob a licença MIT — livre para usar, modificar e contribuir.
+
+📜 Licença
+
+Distribuído sob a licença MIT — livre para usar, modificar e contribuir.
