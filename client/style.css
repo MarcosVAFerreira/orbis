@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+input, button, textarea {
+    width: 100%;
+    margin: 6px 0;
+    padding: 10px;
+}
+textarea {
+    height: 150px;
+}
+button {
+    background: #0084ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background: #006dd1;
+}

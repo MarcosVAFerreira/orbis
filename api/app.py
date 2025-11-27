@@ -1,31 +1,18 @@
-from flask import Flask, request, jsonify
-from src.usuarios import UsuarioRepo
+from flask import Flask
+from api.controllers.usuarios import usuarios_bp
+from api.controllers.contas import contas_bp
+from api.controllers.transacoes import transacoes_bp
 
-app = Flask(__name__)
-repo = UsuarioRepo()
+def create_app():
+    app = Flask(__name__)
 
-@app.get("/usuarios")
-def listar():
-    return jsonify([u.__dict__ for u in repo.listar()])
+    app.register_blueprint(usuarios_bp, url_prefix="/usuarios")
+    app.register_blueprint(contas_bp, url_prefix="/contas")
+    app.register_blueprint(transacoes_bp, url_prefix="/transacoes")
 
-@app.post("/usuarios")
-def criar():
-    dados = request.json
-    usuario = repo.criar(dados["nome"], dados["email"])
-    return jsonify(usuario.__dict__), 201
+    return app
 
-@app.get("/usuarios/<id>")
-def obter(id):
-    usuario = repo.obter(id)
-    if usuario:
-        return jsonify(usuario.__dict__)
-    return {"erro": "Usuário não encontrado"}, 404
-
-@app.delete("/usuarios/<id>")
-def deletar(id):
-    if repo.remover(id):
-        return "", 204
-    return {"erro": "Usuário não encontrado"}, 404
+app = create_app()
 
 if __name__ == "__main__":
     app.run(debug=True)
