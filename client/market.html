@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mercado Financeiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">Mercado Financeiro</div>
+
+<div class="page">
+    <div class="card">
+        <h2>Cotações</h2>
+        <div id="lista"></div>
+    </div>
+
+    <canvas id="grafico" height="100"></canvas>
+</div>
+
+<script src="mockData.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="charts.js"></script>
+<script>
+    const lista = document.getElementById("lista");
+
+    Object.keys(mockMarket).forEach(m => {
+        const item = mockMarket[m];
+        lista.innerHTML += `
+            <p><b>${item.nome}</b>: R$ ${item.valor} 
+            (${item.variacao > 0 ? "▲" : "▼"} ${item.variacao}%)</p>`;
+    });
+
+    carregarGrafico();
+</script>
+<script src="ai-assistant.js"></script>
+</body>
+</html>

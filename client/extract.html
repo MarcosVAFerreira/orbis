@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Extrato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">Extrato</div>
+<div class="page" id="extrato"></div>
+
+<script src="mockData.js"></script>
+<script>
+const area = document.getElementById("extrato");
+
+mockUser.extrato.forEach(l => {
+    area.innerHTML += `
+        <div class="card">
+            <p><b>${l.tipo}</b></p>
+            <p>R$ ${l.valor}</p>
+            <p>${l.data}</p>
+        </div>
+    `;
+});
+</script>
+<script src="ai-assistant.js"></script>
+</body>
+</html>

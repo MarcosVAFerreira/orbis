@@ -1,74 +1,87 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background: #f0f2f5;
+    font-family: Inter, Arial, sans-serif;
+    background: #f5f6fa;
+    color: #1b1b1b;
 }
 
+/* === TOP BAR === */
 .topbar {
-    background: #0047b6;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 24px;
-}
-
-.container {
-    width: 95%;
-    max-width: 1100px;
-    margin: 30px auto;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #00000020;
-    margin-bottom: 20px;
-}
-
-.hidden {
-    display: none;
-}
-
-.card input, .card button {
-    display: block;
     width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 16px;
+    padding: 18px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
 }
 
-button {
-    background: #0047b6;
+.topbar .logo {
+    height: 42px;
+}
+
+.topbar nav a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #4E73DF;
+    font-size: 18px;
+}
+
+/* === LANDING === */
+.landing {
+    display: flex;
+    flex-direction: column;
+}
+
+/* === HERO SECTION === */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 100px;
+}
+
+.hero-text {
+    max-width: 480px;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.hero-text p {
+    font-size: 20px;
+    opacity: 0.8;
+    margin-bottom: 32px;
+}
+
+.btn-primary {
+    padding: 14px 26px;
+    background: #4E73DF;
     color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: 0.2s;
 }
 
-button:hover {
-    background: #003c9c;
+.btn-primary:hover {
+    background: #3559d8;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+.hero-img img {
+    width: 300px;
+    animation: float 2.5s ease-in-out infinite;
 }
 
-.full {
-    grid-column: 1 / -1;
-}
-
-pre {
-    background: #111;
-    color: #0f0;
-    padding: 15px;
-    border-radius: 8px;
-    min-height: 150px;
+/* Floating mascot animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }

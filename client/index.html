@@ -2,55 +2,30 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orbis Bank</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Banco Orbis</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="landing">
+
     <header class="topbar">
-        <h1>🌐 Orbis Bank</h1>
+        <img src="assets/logos/logo.png" class="logo">
+        <nav>
+            <a href="login.html">Entrar</a>
+        </nav>
     </header>
 
-    <main class="container">
-        <section class="card">
-            <h2>Login</h2>
-            <input id="user" type="text" placeholder="Usuário" />
-            <input id="password" type="password" placeholder="Senha" />
-            <button onclick="login()">Entrar</button>
-            <p id="login-msg"></p>
-        </section>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Banco Orbis</h1>
+            <p>Seu banco digital multiplataforma — rápido, seguro e inteligente.</p>
+            <a class="btn-primary" href="login.html">Começar</a>
+        </div>
 
-        <section id="dashboard" class="hidden">
-            <h2>Bem-vindo, <span id="username"></span></h2>
+        <div class="hero-img">
+            <img src="assets/mascot/orbinho.png">
+        </div>
+    </section>
 
-            <div class="grid">
-                <div class="card">
-                    <h3>Saldo</h3>
-                    <p id="saldo">R$ --,--</p>
-                </div>
-
-                <div class="card">
-                    <h3>Depositar</h3>
-                    <input id="valDeposito" type="number" placeholder="Valor" />
-                    <button onclick="depositar()">Depositar</button>
-                    <p id="msg-dep"></p>
-                </div>
-
-                <div class="card">
-                    <h3>Sacar</h3>
-                    <input id="valSaque" type="number" placeholder="Valor" />
-                    <button onclick="sacar()">Sacar</button>
-                    <p id="msg-saq"></p>
-                </div>
-
-                <div class="card full">
-                    <h3>Extrato</h3>
-                    <pre id="extrato"></pre>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="app.js"></script>
+    <script src="ai-assistant.js"></script>
 </body>
 </html>
