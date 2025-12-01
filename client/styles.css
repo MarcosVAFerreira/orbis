@@ -1,115 +1,172 @@
 /* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: Inter, Arial, sans-serif;
 }
 
+/* PALHETA ORBINHO */
+:root {
+    --gold: #f4c542;
+    --gold-soft: #ffe9a7;
+    --gold-light: #fff7d6;
+    --blue: #1b3b6f;
+    --bg: #f5f6fa;
+}
+
+/* GLOBAL */
 body {
-    font-family: "Inter", Arial, sans-serif;
-    background: #fff9db; /* amarelo MUITO suave */
-    color: #1e1e1e;
+    background: var(--bg);
+    color: #1a1a1a;
 }
 
-/* ===== TOPO ===== */
+/* TOPBAR */
 .topbar {
     width: 100%;
-    padding: 18px 40px;
+    padding: 18px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #ffffffcc;
-    backdrop-filter: blur(6px);
-    border-bottom: 2px solid #f4c54244;
+    background: white;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
 }
 
-.logo {
-    height: 50px;
+.topbar .logo {
+    height: 42px;
 }
 
-.topbar .link {
-    font-weight: 700;
-    font-size: 18px;
-    color: #1A446E;
+.topbar nav a {
     text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: 0.2s;
-}
-
-.topbar .link:hover {
-    background: #ffd84d88;
-}
-
-/* HERO */
-.hero {
-    padding: 100px 100px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background: linear-gradient(120deg, #fff4c2, #ffe894);
-    min-height: 70vh;
-}
-
-.hero-content {
-    max-width: 480px;
-}
-
-.hero-content h1 {
-    font-size: 56px;
-    font-weight: 900;
-    margin-bottom: 14px;
-    color: #1a446e;
-}
-
-.hero-content p {
-    font-size: 20px;
-    opacity: 0.9;
-    margin-bottom: 30px;
-}
-
-.btn-primary {
-    padding: 14px 26px;
-    background: #f4c542;
-    color: #1a1a1a;
-    border-radius: 12px;
     font-weight: bold;
-    text-decoration: none;
-    font-size: 18px;
+    margin-left: 20px;
+    color: var(--blue);
     transition: 0.2s;
-    box-shadow: 0 6px 15px #f4c54266;
+}
+
+.topbar nav a:hover {
+    color: var(--gold);
+}
+
+/* CONTAINERS */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 26px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.login-box {
+    max-width: 400px;
+    margin: 80px auto 40px auto;
+    text-align: center;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+/* INPUTS */
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: var(--gold);
+    outline: none;
+}
+
+/* BUTTONS */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--gold);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 18px #f4c54266;
+    transition: 0.2s;
 }
 
 .btn-primary:hover {
-    background: #ffd84d;
-    transform: translateY(-2px);
+    background: #ffdd4d;
 }
 
-/* ORBINHO */
-.orbinho {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 85px;
-    animation: float 3s infinite ease-in-out;
-    z-index: 999;
+.btn-secondary {
+    width: 100%;
+    padding: 12px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
 }
 
-.chat-box {
-    position: fixed;
-    bottom: 130px;
-    right: 25px;
-    background: #fff;
-    border-radius: 14px;
-    padding: 14px 18px;
-    font-size: 16px;
-    width: 240px;
-    display: none;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+.btn-secondary:hover {
+    background: #254b8c;
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+/* SALDO */
+.saldo {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+/* EXTRATO */
+.extrato {
+    background: var(--gold-light);
+    padding: 12px;
+    min-height: 120px;
+    border-radius: 10px;
+}
+
+/* MENSAGENS */
+.msg {
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--blue);
+}
+
+/* ANIMAÇÃO */
+.fade {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
 }

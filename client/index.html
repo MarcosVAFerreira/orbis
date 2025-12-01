@@ -2,28 +2,67 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <title>Banco Orbis</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbis Bank</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body class="landing">
-
+<body>
+    
     <header class="topbar">
-        <img src="assets/logos/logo.png" class="logo" alt="Orbis">
+        <img src="assets/logos/logo.png" class="logo" alt="Orbis Logo">
         <nav>
-            <a href="login.html" class="link">Entrar</a>
+            <a href="#">Sobre</a>
+            <a href="#">Ajuda</a>
         </nav>
     </header>
 
- <section class="hero">
-    <div class="hero-content">
-        <h1>Banco Orbis</h1>
-        <p>O banco digital multiplataforma — rápido, seguro e inteligente.</p>
-        <a class="btn-primary" href="login.html">Começar</a>
-    </div>
-</section>
+    <main class="container">
+        
+        <!-- LOGIN -->
+        <section id="login-section" class="card login-box">
+            <h2>Entrar no Orbis Bank</h2>
+            <input id="user" type="text" placeholder="Usuário" autocomplete="off"/>
+            <input id="password" type="password" placeholder="Senha" autocomplete="off"/>
+            <button class="btn-primary" onclick="login()">Acessar</button>
+            <p id="login-msg" class="msg"></p>
+        </section>
 
-    <script src="ai-assistant.js"></script>
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="hidden fade">
+            <h2 class="welcome">Bem-vindo, <span id="username"></span></h2>
 
+            <div class="grid">
+                
+                <div class="card">
+                    <h3>Saldo</h3>
+                    <p id="saldo" class="saldo">R$ --,--</p>
+                </div>
+
+                <div class="card">
+                    <h3>Depositar</h3>
+                    <input id="valDeposito" type="number" placeholder="Valor" />
+                    <button class="btn-secondary" onclick="depositar()">Depositar</button>
+                    <p id="msg-dep" class="msg"></p>
+                </div>
+
+                <div class="card">
+                    <h3>Sacar</h3>
+                    <input id="valSaque" type="number" placeholder="Valor" />
+                    <button class="btn-secondary" onclick="sacar()">Sacar</button>
+                    <p id="msg-saq" class="msg"></p>
+                </div>
+
+                <div class="card full">
+                    <h3>Extrato</h3>
+                    <pre id="extrato" class="extrato"></pre>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+      <script src="ai-assistant.js"></script>  
+    <script src="app.js"></script>
 </body>
 </html>

@@ -1,38 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Mercado Financeiro</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Orbis — Mercado</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+    <header class="topbar">
+        <img src="assets/logos/logo.png" class="logo" alt="Orbis">
+        <nav><a href="index.html">Home</a> <a href="dashboard.html">Dashboard</a></nav>
+    </header>
 
-<div class="navbar">Mercado Financeiro</div>
+    <main class="container">
+        <div class="card">
+            <h2>Mercado — Cotações (BRL)</h2>
+            <div id="rates" style="display:flex;gap:18px;flex-wrap:wrap;"></div>
+        </div>
 
-<div class="page">
-    <div class="card">
-        <h2>Cotações</h2>
-        <div id="lista"></div>
-    </div>
+        <div class="card">
+            <h2>Histórico (7 dias)</h2>
+            <canvas id="chart" height="120"></canvas>
+        </div>
+    </main>
 
-    <canvas id="grafico" height="100"></canvas>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="charts.js"></script>
+    <script>
+        async function loadRates() {
+            const el = document.getElementById("rates");
+            el.innerHTML = "Carregando...";
+            try {
+                const res = await fetch("https://api.exchangerate.host/latest?base=BRL");
+                const j = await res.json();
+                const show = ["USD","EUR","GBP","JPY","BTC"];
+                el.innerHTML = "";
+                show.forEach(cur => {
+                    const rate = (1 / (j.rates[cur]||1)).toFixed(4);
+                    const node = document.createElement("div");
+                    node.style.minWidth = "160px";
+                    node.innerHTML = `<strong>${cur}</strong><div>1 ${cur} ≈ R$ ${rate}</div>`;
+                    el.appendChild(node);
+                });
+            } catch (e) {
+                el.innerHTML = "Erro ao buscar cotações.";
+            }
+        }
 
-<script src="mockData.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="charts.js"></script>
-<script>
-    const lista = document.getElementById("lista");
+        async function loadHistory() {
+            // last 7 days for USD as example
+            const end = new Date();
+            const start = new Date(); start.setDate(end.getDate()-6);
+            const format = d => d.toISOString().slice(0,10);
+            const url = `https://api.exchangerate.host/timeseries?start_date=${format(start)}&end_date=${format(end)}&base=BRL&symbols=USD`;
+            try {
+                const r = await fetch(url);
+                const j = await r.json();
+                const labels = Object.keys(j.rates).sort();
+                const data = labels.map(d => (1 / j.rates[d].USD).toFixed(4));
+                renderChart(labels, data);
+            } catch (e) {
+                console.warn("history err", e);
+            }
+        }
 
-    Object.keys(mockMarket).forEach(m => {
-        const item = mockMarket[m];
-        lista.innerHTML += `
-            <p><b>${item.nome}</b>: R$ ${item.valor} 
-            (${item.variacao > 0 ? "▲" : "▼"} ${item.variacao}%)</p>`;
-    });
+        loadRates();
+        loadHistory();
+    </script>
 
-    carregarGrafico();
-</script>
-<script src="ai-assistant.js"></script>
+    <script src="ai-assistant.js"></script>
 </body>
 </html>

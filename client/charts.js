@@ -1,15 +1,28 @@
-function carregarGrafico() {
-    const ctx = document.getElementById("grafico").getContext("2d");
-
-    new Chart(ctx, {
-        type: "line",
+function renderChart(labels, data) {
+    const ctx = document.getElementById("chart").getContext("2d");
+    // destroy previous if exists (helpful in dev)
+    if (window._orbisChart) window._orbisChart.destroy();
+    window._orbisChart = new Chart(ctx, {
+        type: 'line',
         data: {
-            labels: ["Seg", "Ter", "Qua", "Qui", "Sex"],
+            labels,
             datasets: [{
-                label: "Variação USD",
-                data: [5.58, 5.61, 5.63, 5.60, 5.62],
-                borderWidth: 2
+                label: 'USD (R$)',
+                data,
+                borderColor: '#1b3b6f',
+                backgroundColor: 'rgba(27,59,111,0.15)',
+                tension: 0.25,
+                pointRadius: 3,
+                pointBackgroundColor: '#F4C542'
             }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: false }
+            },
+            plugins: {
+                legend: { display: false }
+            }
         }
     });
 }
