@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./orbis.db
+      - SECRET_KEY=your-secret-key-change-in-production
+      - EXCHANGE_API_KEY=demo
+    volumes:
+      - ./api:/app
+      - ./core:/app/core
+      - ./infra:/app/infra
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+  client:
+    build: ./client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    command: npm run dev -- --host
+
+  # Descomente para usar PostgreSQL em produção
+  # db:
+  #   image: postgres:15
+  #   environment:
+  #     POSTGRES_USER: orbis
+  #     POSTGRES_PASSWORD: orbis123
+  #     POSTGRES_DB: orbis
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+# volumes:
+#   postgres_data:
